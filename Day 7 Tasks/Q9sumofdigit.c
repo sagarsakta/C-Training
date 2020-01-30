@@ -1,29 +1,27 @@
 #include<stdio.h>
-void sum(int);
+int sum(int);
 
 	int main()
 	{
 		int a;
 		printf("Enter a no");
 		scanf("%d",&a);
-		sum(a);
+		int c=sum(a);
+		printf("%d",c);
 		return 0;
 	}
-	void sum(int a)
+	int sum(int a)
 	{
-		int rem,s=0;
 	
-		while(a!=0)
-		{
-		rem=a%10;
-		s=s+rem;
-		a=a/10;
+	 if(a==0)
+	 {
+		 return 0;
+	 }
+	 else
+	 {
+		 return sum(a/10) + a%10;
+	 }
 
-		}
-                printf("%d",s);
-		
-		
-		}
 	
-
+	}
 	
