@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+	float a=10;
+	void *ptr= NULL;
+	ptr=&a;
+        printf("%d",*(int*)a);
+       return 0;
+}
