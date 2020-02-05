@@ -16,9 +16,9 @@ int main()
 	 ptr= (int*) realloc(ptr, a+1);
 	a++;
 	}
-	for(i=0;i<=n;i++)
+	for(i=0;i<a;i++)
 	{
-	printf("%d",ptr[i++]);
+	printf("%d",ptr[i]);
 	}
 	return 0;
 }
