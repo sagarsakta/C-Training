@@ -4,8 +4,11 @@ struct node{
 	int data;
 	struct node *next;
 };
+struct node *top=NULL;
 
   void push();
+  void topest();
+  void pop();
   void display();
 
   int main()
@@ -20,6 +23,17 @@ struct node{
 			push();
 			display();
 		}
+		else if(a==2)
+		{
+			topest();
+			display();
+		}
+		else if(a==3)
+		{
+			pop();
+			display();
+		}
+
 		printf(" again ask choice\n");
 		scanf("%d", &a);
 	}
@@ -27,17 +41,48 @@ struct node{
 }
  void push()
 {
-	struct node *top=0, *newnode;
+	struct node  *newnode;
 	newnode= (struct node*) malloc(sizeof(struct node));
 	printf("enter the data u want");
 	scanf("%d", &newnode->data);
 	newnode->next=top;
 	top=newnode;
 }
+
+void topest()
+{
+	
+    if(top==0)
+    {
+	    printf("stack is empty");
+    }
+    else
+    {
+	    printf(" topmost element is %d\n" , top->data);
+    }
+
+}
+   void pop()
+{
+	
+	if(top==0)
+	{
+		printf("stack is empty");
+	}
+	else
+	{
+          struct node *temp;
+	  temp= top;
+	  printf("popped item is %d\n", top->data);
+	  top=top->next;
+	  free(temp);
+	}
+}
+
   void display()
 {
 
-	struct node *temp, *top;
+	struct node *temp=top;
 	if(top==0)
 	{
 		printf("stack is empty");

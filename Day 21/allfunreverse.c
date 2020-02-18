@@ -16,12 +16,13 @@ void deletebegining();
 void deletelast();
 void deletespecific();
 void reverse();
+void circularreverse(struct node *);
 
 
 int main()
 {
 	
-        int a;
+   int a;
    printf("Enter 0 for reverse\n");
    printf("Enter 1 for insert at beginning\n");
    printf("enter 2 for insert at last\n");
@@ -29,52 +30,53 @@ int main()
    printf("enter 4 for delete at beginning\n");
    printf("enter 5 for delete at last\n");
    printf("enter 6 for delete at specific position\n");
-   printf("enter 7 to exit");
+   printf("enter 7 for reverse data of Circular ll\n");
+   printf("enter 8 to exit\n");
    
    do{
 	   scanf("%d",&a);
-	   if(a==0)
+	   switch(a)
 	   {
-		   reverse();
-		   display();
-	   }
-   else if(a==1)
-   {
-	   insertbegining();
-	   display();
-   }
-   else if(a==2)
-   {
-	   insertlast();
-	   display();
-   }
-   else if(a==3)
-   {
-	   insertspecific();
-	   display();
-   }
-   else if(a==4)
-   {
-	   deletebegining();
-	   display();
-   }
-   else if(a==5)
-   {
-	   deletelast();
-	   display();
-   }
-   else if(a==6)
-   {
-	   deletespecific();
-	   display();
-   }
-   else if(a==7)
-   {
-	  printf("ready to exit");
-   }
+		   case 0:
+			   reverse();
+			   display();
+			   break;
+		   case 1:
+			   insertbegining();
+			   display();
+			   break;
+		   case 2:
+			   insertlast();
+			   display();
+			   break;
+		   case 3:
+			   insertspecific();
+			   display();
+			   break;
+		   case 4: 
+			   deletebegining();
+			   display();
+			   break;
+		   case 5:
+			   deletelast();
+			   display();
+			   break;
+		   case 6:
+			   deletespecific();
+			   display();
+			   break;
+		   case 7:
+			   circularreverse(head);
+			   break;
+		   case 8: 
+			  printf("exit");
+
+             }
+
+    
    
    }
-   while(a<7);
+   while(a<8);
    return 0;
 }
 
@@ -93,6 +95,22 @@ void reverse()
         }
         head=prev;
 }
+
+void circularreverse(struct node *head)
+{
+	if(head==NULL)
+	{
+		printf("list is empty");
+	}
+	else
+	{
+		circularreverse(head->next);
+		printf("%d" , head->data);
+	}
+}
+
+
+
 
 
 void insertbegining()
